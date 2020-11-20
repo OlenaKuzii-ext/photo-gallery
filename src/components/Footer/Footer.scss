@@ -1,0 +1,16 @@
+@import "../../utils";
+
+.footer {
+    position: sticky;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    height: 359px;
+    max-width: 2000px;
+    margin: auto;
+    bottom: 0;
+    background-image: url("https://i.picsum.photos/id/236/900/300.jpg?grayscale&hmac=YAihcBRLFsfFGbIzkzNgxcntPsEtfmXtnhdI4707-hw");
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+  }

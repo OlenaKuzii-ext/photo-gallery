@@ -1,0 +1,57 @@
+@import "../../utils.scss";
+
+.header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: -30px;
+    align-items: center;
+    letter-spacing: 2px;
+    font-family: $main-font;
+    background-image: url("https://i.picsum.photos/id/501/1000/500.jpg?grayscale&hmac=gzyz3sAFSQ47NQRyH2GV0XLc8gcnSTaARAe3kL-eWtQ");
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-left: 900px;
+        margin-top: 30px;
+    }
+
+    &__text {
+        font-size: 20px;
+        margin: 10px;
+        color: black;
+        cursor: pointer;
+    }
+
+    &__link {
+      position: absolute;
+      text-decoration: none;
+      font-size: 15px;
+      color: $hover-color;
+      cursor: pointer;
+      @include hover ( color , black);
+      z-index: 2;
+    }
+
+    &__heading {
+        font-size: 150px;
+        margin-top: -100px;
+    }
+
+    &__button {
+        width: 600px;
+        height: 100px;
+        border-radius: 10px;
+        font-size: 70px;
+        font-family: "Courier New", Courier, monospace;
+        background-color: $base-color;
+        cursor: pointer;
+        @include hover ( transform , scale(1.02));
+        @include hover ( background-color , $hover-color);
+    }
+}

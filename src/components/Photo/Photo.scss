@@ -1,0 +1,33 @@
+@import '../../utils.scss';
+
+.photo {
+  &__img {
+      width: 300px;
+  }
+  z-index: 1;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  &__input,
+  &__button {
+    width: 300px;
+    height: 30px;
+    margin-bottom: 16px;
+    border: 1px solid $hover-color;
+    border-radius: 8px;
+    background-color: $base-color;
+    outline-color: $button-color;
+  }
+
+  &__button {
+    padding: 21px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 6px 23px rgba(0, 117, 255, 0.46);
+    background-color: $base-color;
+    color: $base-color;
+  }
+}

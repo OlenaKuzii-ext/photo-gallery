@@ -1,0 +1,83 @@
+@import "../../utils.scss";
+
+.photos {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin: 0 auto;
+    padding: 15px 14px;
+    border-radius: 5px;
+    list-style-type: none;
+    z-index: 1;
+  
+    &__item {
+      border: 1px solid $hover-color;
+      border-radius: 8px;
+      background-color: $base-color;
+    }
+
+    &__img {
+      height: 500px;
+      width: 620px;
+      margin: 0;
+      border-radius: 8px;
+      @include hover ( transform , scale(1.02));
+    }
+  
+    &__title {
+      margin: 20px;
+      padding-top: 45px;
+      font-weight: 500;
+      font-size: 27px;
+      line-height: 15px;
+    }
+  
+    &__like-counter {
+      margin: 25px;
+      font-weight: bold;
+      font-size: 26px;
+      line-height: 22px;
+    }
+  
+    &__like {
+      display: flex;
+    }
+
+    &__button-open {
+      width: 200px;
+      height: 40px;
+      margin: 10px;
+      border-radius: 15px;
+      border: 1px solid $hover-color;
+  
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 40px;
+  
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: none;
+  
+      background: $button-color;
+      transition: 0.8s;
+      cursor: pointer;
+      outline: none;
+      box-shadow: 2px 2px $hover-color;
+  
+      @include hover ( background-color , $hover-color);
+
+    }
+
+    &__button-like {
+      width: 50px;
+      height: 30px;
+      margin-top: 20px;
+      border-radius: 10px;
+      background-color: #C8C8C8;
+      border: 1px solid $hover-color;
+      outline: none;
+      @include hover ( background-color , $hover-color);
+      @include hover ( box-shadow, 1px 1px #888888);
+    }
+}

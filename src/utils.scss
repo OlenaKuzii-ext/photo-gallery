@@ -1,0 +1,12 @@
+@mixin hover($_property, $_toValue) {
+    transition: #{$_property} 0.3s;
+    &:hover {
+      #{$_property}: $_toValue;
+    }
+  }
+
+$base-color: #c9c9cb;
+$button-color: #C8C8C8;
+$background-color: #eeeded;
+$hover-color: #8c8c7e;
+$main-font: "Comic Sans MS", cursive, sans-serif;
