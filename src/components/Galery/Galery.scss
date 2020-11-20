@@ -4,6 +4,8 @@
     font-family: $main-font;
     z-index: 1;
     background-color: $background-color;
+    max-width: 1800px;
+    margin: 0 auto;
 
     &__heading {
       margin: 0 auto;
@@ -15,12 +17,12 @@
       @include hover ( transform , scale(1.02));
       &:hover {
         &::after {
-          content: "Click to see photos";
-          width: 300px;
+          content: "Click to view photos and scroll down";
+          width: 260px;
           position: absolute;
-          font-size: 19px;
+          font-size: 15px;
           top: 200px;
-          left: 0;
+          left: 30px;
           border-radius: 30px;
         }
     }
