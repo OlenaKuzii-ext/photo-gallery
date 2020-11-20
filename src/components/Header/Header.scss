@@ -12,6 +12,31 @@
     background-size: cover;
     background-position: center;
     z-index: 1;
+    margin: 0;
+
+    @media (max-width: 800px) {
+      flex-direction: row;
+    }
+
+
+    &__heading-link {
+      text-decoration: none;
+      color: black;
+      cursor: pointer;
+      @include hover ( transform , scale(1.02));
+      &:hover {
+        &::after {
+          content: "";
+          position: absolute;
+          width: 370px;
+          height: 10px;
+          bottom: 100px;
+          border-radius: 30px;
+          background: $hover-color;
+        }
+    }
+ 
+    }
 
     &__contacts {
         display: flex;
@@ -19,6 +44,10 @@
         gap: 10px;
         margin-left: 900px;
         margin-top: 30px;
+
+        @media (max-width: 1000px) {
+          display: none;
+        }
     }
 
     &__text {

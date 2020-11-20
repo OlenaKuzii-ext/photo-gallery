@@ -1,8 +1,8 @@
 import React from 'react';
 import './Header.scss';
-import propTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-export const Header = ({ onClick }) => (
+export const Header = () => (
   <div className="header">
     <div className="header__contacts">
       <p className="header__text">
@@ -20,17 +20,8 @@ export const Header = ({ onClick }) => (
         </a>
       </p>
     </div>
-    <h1 className="header__heading">Galery</h1>
-    <button
-      type="button"
-      className="header__button"
-      onClick={onClick}
-    >
-      Show Photos
-    </button>
+    <Link className="galery__link" to="/photos">
+      <h1 className="galery__heading">Galery</h1>
+    </Link>
   </div>
 );
-
-Header.propTypes = {
-  onClick: propTypes.func.isRequired,
-};

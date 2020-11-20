@@ -11,50 +11,52 @@ export const Photo = ({ src, name, author }) => (
       alt={name}
     />
     <p className="photo__title">{name}</p>
-    <p className="photo__author">{author}</p>
-    <p className="photo__info">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-      Cum suscipit eligendi id possimus natus vero, esse aliquam qui
-      itaque consequuntur molestias soluta praesentium nisi.
-      Modi officia optio est nostrum iure.
-    </p>
-    <form
-      className="form contacts__form"
-      action="https://www.facebook.com/profile.php?id=100017422386064/"
-      method="POST"
-    >
-      <label>
-        <input
-          className="input form__input"
-          type="text"
-          name="nameContacts"
-          placeholder="Name"
-          pattern="[A-Za-z]{3}"
-          required
-        />
-      </label>
-      <label>
-        <input
-          className="input form__input"
-          type="text"
-          name="emailContacts"
-          placeholder="Email"
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-          required
-        />
-      </label>
-      <label>
-        <textarea
-          className="input form__input"
-          name="message"
-          placeholder="Message"
-          required
-        />
-      </label>
-      <button className="button form__button" type="submit">
-        Write to the author
-      </button>
-    </form>
+    <div className="photo__info">
+      <h2 className="photo__author">{author}</h2>
+      <p className="photo__text">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+        Cum suscipit eligendi id possimus natus vero, esse aliquam qui
+        itaque consequuntur molestias soluta praesentium nisi.
+        Modi officia optio est nostrum iure.
+      </p>
+      <form
+        className="form contacts__form"
+        action="https://www.facebook.com/profile.php?id=100017422386064/"
+        method="POST"
+      >
+        <label>
+          <input
+            className="input form__input"
+            type="text"
+            name="nameContacts"
+            placeholder="Name"
+            pattern="[A-Za-z]{3}"
+            required
+          />
+        </label>
+        <label>
+          <input
+            className="input form__input"
+            type="text"
+            name="emailContacts"
+            placeholder="Email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            required
+          />
+        </label>
+        <label>
+          <textarea
+            className="input form__input"
+            name="message"
+            placeholder="Message"
+            required
+          />
+        </label>
+        <button className="button form__button" type="submit">
+          Write to the author
+        </button>
+      </form>
+    </div>
   </div>
 );
 

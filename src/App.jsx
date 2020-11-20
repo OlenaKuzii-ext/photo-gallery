@@ -1,17 +1,17 @@
 /* eslint-disable react/no-access-state-in-setstate */
-/* eslint-disable no-console */
 import React from 'react';
 import './App.scss';
+import { Switch, Route } from 'react-router-dom';
 import { getLength, getPhotos } from './api/photos';
-import Photos from './components/PhotosPage';
 import { Footer } from './components/Footer/Footer';
 import { Header } from './components/Header/Header';
+import Galery from './components/Galery/Galery';
 
 class App extends React.Component {
   state = {
     photos: [],
     pageSize: 4,
-    totalUsersCount: null,
+    totalPhotosCount: null,
     currentPage: 1,
     query: '',
   }
@@ -19,19 +19,26 @@ class App extends React.Component {
   componentDidMount() {
     getLength()
       .then((arr) => {
-        this.setState({ totalUsersCount: arr.length });
+        this.setState({ totalPhotosCount: arr.length });
       });
-  }
-
-  onClick(page) {
-    this.setState({
-      currentPage: page,
-    });
     this.loadPage();
   }
 
-  loadPage = async() => {
-    const photos = await getPhotos(this.state.currentPage, this.state.pageSize);
+  onClick = (page) => {
+    this.setState({
+      currentPage: page,
+    });
+    this.loadPage(page);
+  }
+
+  onChange = (event) => {
+    this.setState({
+      query: event.target.value,
+    });
+  }
+
+  loadPage = async(page) => {
+    const photos = await getPhotos(page, this.state.pageSize);
 
     this.setState({ photos });
   }
@@ -40,14 +47,12 @@ class App extends React.Component {
     const {
       photos,
       pageSize,
-      totalUsersCount,
+      totalPhotosCount,
       currentPage,
       query,
     } = this.state;
-    const pagesCount = Math.ceil(totalUsersCount / pageSize);
+    const pagesCount = Math.ceil(totalPhotosCount / pageSize);
     const pages = [];
-
-    console.log(query);
 
     const filteredPhotos = photos.filter(({ author }) => (
       author.toLowerCase().includes(query.toLowerCase())
@@ -59,44 +64,19 @@ class App extends React.Component {
 
     return (
       <div>
-        {filteredPhotos.length === 0 ? (
-          <Header
-            onClick={this.loadPage}
-          />
-        ) : (
-          <div className="galery">
-            <h1 className="galery__heading">Galery</h1>
-            <div className="galery__search">
-              <p className="galery__search-text">Find the author</p>
-              <input
-                type="text"
-                id="search-query"
-                className="galery__input"
-                placeholder="Type search author"
-                name="search"
-                value={query}
-                onChange={(event) => {
-                  this.setState({
-                    query: event.target.value,
-                  });
-                }}
-              />
-            </div>
-            <div className="galery__buttons">
-              {pages.map(page => (
-                <button
-                  type="button"
-                  className={(currentPage === page)
-                    ? 'galery__selectedPage' : 'galery__button-page'}
-                  onClick={() => this.onClick(page)}
-                >
-                  {page}
-                </button>
-              ))}
-            </div>
-            <Photos photos={filteredPhotos} />
-          </div>
-        )}
+        <Header />
+        <Switch>
+          <Route path="">
+            <Galery
+              pages={pages}
+              currentPage={currentPage}
+              query={query}
+              filteredPhotos={filteredPhotos}
+              onClick={this.onClick}
+              onChange={this.onChange}
+            />
+          </Route>
+        </Switch>
         <Footer />
       </div>
     );

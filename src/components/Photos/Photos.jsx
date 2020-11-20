@@ -1,5 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './Photos.scss';
 
 export const Photos = ({ id, downloadUrl, name, author, onClick }) => (
@@ -16,20 +17,17 @@ export const Photos = ({ id, downloadUrl, name, author, onClick }) => (
         Likes:
         {id}
       </p>
+    </div>
+    <Link to="/photo">
       <button
         type="button"
-        className="photos__button photos__button-like"
+        className="photos__button photos__button-open"
+        onClick={onClick}
       >
-        LIKE
+        Open
       </button>
-    </div>
-    <button
-      type="button"
-      className="photos__button photos__button-open"
-      onClick={onClick}
-    >
-      Open
-    </button>
+    </Link>
+
   </li>
 );
 

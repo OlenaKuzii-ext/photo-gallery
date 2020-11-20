@@ -8,6 +8,7 @@ export const PhotosList = ({ photos, onClick }) => (
     {photos.map(({ id, download_url, name, author }) => (
       <Photos
         id={id}
+        key={id}
         downloadUrl={download_url}
         name={name}
         author={author}

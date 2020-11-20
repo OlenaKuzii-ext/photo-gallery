@@ -10,11 +10,21 @@
     border-radius: 5px;
     list-style-type: none;
     z-index: 1;
+    background-color: $background-color;
   
+  @media (max-width: 1000px) {
+    display: flex;
+    flex-direction: column;
+  }
+
     &__item {
       border: 1px solid $hover-color;
       border-radius: 8px;
       background-color: $base-color;
+
+      @media (max-width: 1200px) {
+        width: 500px;
+      }
     }
 
     &__img {
@@ -23,6 +33,11 @@
       margin: 0;
       border-radius: 8px;
       @include hover ( transform , scale(1.02));
+
+      @media (max-width: 1200px) {
+        width: 500px;
+        height: 400px;
+      }
     }
   
     &__title {
@@ -66,18 +81,5 @@
       box-shadow: 2px 2px $hover-color;
   
       @include hover ( background-color , $hover-color);
-
-    }
-
-    &__button-like {
-      width: 50px;
-      height: 30px;
-      margin-top: 20px;
-      border-radius: 10px;
-      background-color: #C8C8C8;
-      border: 1px solid $hover-color;
-      outline: none;
-      @include hover ( background-color , $hover-color);
-      @include hover ( box-shadow, 1px 1px #888888);
     }
 }

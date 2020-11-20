@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: row;
     gap: 50px;
-    height: 359px;
+    height: 300px;
     max-width: 2000px;
     margin: auto;
     bottom: 0;
@@ -13,4 +13,10 @@
     background-size: cover;
     background-position: center;
     z-index: -1;
+
+    &__heading {
+      font-family: $main-font;
+      color: $hover-color;
+      font-size: 35px;
+    }
   }
