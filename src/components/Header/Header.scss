@@ -18,26 +18,6 @@
       flex-direction: row;
     }
 
-
-    &__heading-link {
-      text-decoration: none;
-      color: black;
-      cursor: pointer;
-      @include hover ( transform , scale(1.02));
-      &:hover {
-        &::after {
-          content: "";
-          position: absolute;
-          width: 370px;
-          height: 10px;
-          bottom: 100px;
-          border-radius: 30px;
-          background: $hover-color;
-        }
-    }
- 
-    }
-
     &__contacts {
         display: flex;
         flex-direction: column;
